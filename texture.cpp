@@ -25,7 +25,7 @@ const char* CTexture::s_FileName[] =
 	"Data/TEXTURE/Brokon_F.png",				// プレイヤーVer4
 	"Data/TEXTURE/Bullet.png",					// 弾１
 	"Data/TEXTURE/Bullet_E.png",				// 弾２
-	"Data/TEXTURE/explosion000.png",			// 爆発Ranking_BG
+	"Data/TEXTURE/explosion000.png",			// 爆発
 	"Data/TEXTURE/enemy000.png",				// エネミー
 	"Data/TEXTURE/TutorialEnemy0.png",			// チュートリアルエネミー1
 	"Data/TEXTURE/TutorialEnemy1.png",			// チュートリアルエネミー2
@@ -34,6 +34,9 @@ const char* CTexture::s_FileName[] =
 	"Data/TEXTURE/RGBA2.png",					// 背景
 	"Data/TEXTURE/Ranking_BG.png",				// 背景
 	"Data/TEXTURE/joheki_2.png",				// 街
+	"Data/TEXTURE/RED1.png",					// 街、ダメージ状態
+	"Data/TEXTURE/RED2.png",					// 街、よりダメージ状態
+	"Data/TEXTURE/RED3.png",					// 街、さらにダメージ状態
 	"Data/TEXTURE/Taitoru_102.png",				// タイトル
 	"Data/TEXTURE/reseut0099.png",				// リザルト
 	"Data/TEXTURE/reseut0999.png",				// リザルト（死亡時）

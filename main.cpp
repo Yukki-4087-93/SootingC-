@@ -29,7 +29,7 @@ namespace
 	// ウインドウのクラス名
 	LPCTSTR CLASS_NAME = _T("SUPERBOLLSHOOTING2");
 	// ウインドウのキャプション名
-	LPCTSTR WINDOW_NAME = _T("帰ってｷﾀ━(ﾟ∀ﾟ)━! SUPERBOLLSHOOTING 2 ! ～Return to Hero～");
+	LPCTSTR WINDOW_NAME = _T("帰ってｷﾀ━(ﾟ∀ﾟ)━! SuperBollShooting 2 ! ～Return to Hero～");
 
 	// スクリーンの幅
 	const int SCREEN_WIDTH = 1280;
