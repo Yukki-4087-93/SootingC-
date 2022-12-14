@@ -36,14 +36,12 @@ public:
 	void Uninit();											//終了
 	void Update();											//更新
 	void Draw();											//描画
-	static CBg* GetBg();									//背景の情報取得
 	static CPlayer* GetPlayer();							//プレイヤー情報の取得
 	static Cprotect_City* GetProtect_City();				//街の情報の取得
 	static CUi* GetUi();
 	static CScore* GetScore();
 
 private:
-	static CBg* m_pBg;													//背景のポインター
 	static CPlayer* m_pPlayer;											//プレイヤーのポインター
 	static CEnemyManager* m_pEnemyManager;								//エネミーのポインター
 	static Cprotect_City* m_pProtect_City;								//街のポインター

@@ -47,7 +47,7 @@ CBg* CBg::Create(D3DXVECTOR3 pos, float ObfHi, float ObfWd, CTexture::TEXTURE te
 //--------------------------------------
 void CBg::Uninit()
 {
-	CObject2D::Uninit();
+	//CObject2D::Uninit();
 }
 
 //--------------------------------------

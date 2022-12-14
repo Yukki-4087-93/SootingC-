@@ -12,7 +12,7 @@
 //----------------------------------------
 //前方宣言
 //----------------------------------------
-class CBg;
+//class CBg;
 class CTexture;
 class CSoundManager;
 
@@ -30,12 +30,12 @@ public:
 	void Update();														//更新
 	void Draw();														//描画
 	static void Set(int nCount);
-	static CBg* GetBg();												//背景の情報取得
+	//static CBg* GetBg();												//背景の情報取得
 	static CTexture* GetTexture();										//テクスチャ情報の取得
 
 private:
 	static int m_nResult;
-	static CBg* m_pBg;													//背景のポインター
+	//static CBg* m_pBg;													//背景のポインター
 	static CTexture* m_pTexture;										//テクスチャのポインター
 };
 

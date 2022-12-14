@@ -43,9 +43,9 @@ const int MULTIPLY_FIRST = 0;								//初めに掛ける数
 const int MULTIPLY_SECOND = 1;								//次に掛ける数
 const int TUTORIAL_LIFE = 1;								//チュートリアルエネミーのライフ
 const int NOMAL_LIFE = 1;									//一般的なエネミーのライフ
-const int STRANGER_LIFE = 4;								//一風変わったエネミーのライフ
+const int STRANGER_LIFE = 2;								//一風変わったエネミーのライフ
 const int MIDBOSS_LIFE = 6;									//ボスクラスエネミーのライフ
-const int TRYMIDBOSS_LIFE = 6;									//ボスクラスエネミー3連星のライフ
+const int TRYMIDBOSS_LIFE = 6;								//ボスクラスエネミー3連星のライフ
 const int BOSS_LIFE = 18;
 
 //--------------------------------------

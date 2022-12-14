@@ -18,7 +18,7 @@
 //--------------------------------------
 //グローバル変数
 //--------------------------------------
-CBg *CResult::m_pBg;
+//CBg *CResult::m_pBg;
 CTexture *CResult::m_pTexture;
 int CResult::m_nResult;
 
@@ -65,10 +65,10 @@ void CResult::Uninit()
 void CResult::Update()
 {
 
-	if (m_pBg != nullptr)
-	{//背景のポインターに値が入っていたとき
-		m_pBg->Update();							//背景の更新
-	}
+	//if (m_pBg != nullptr)
+	//{//背景のポインターに値が入っていたとき
+	//	m_pBg->Update();							//背景の更新
+	//}
 
 	//決定キー(ENTER)が押されたかどうか
 	if (CApplication::GetKyeboard()->GetkeyboardTrigger(DIK_RETURN))
@@ -95,27 +95,19 @@ void CResult::Set(int nCount)
 	if (nCount == 0)
 	{
 		//ゲーム内のオブジェクト生成
-		m_pBg = CBg::Create(D3DXVECTOR3(1280.0f / 2, 720.0f / 2, 0.0f), 
-							1280.0f, 
-							720.0f, 
-							CTexture::TEXTURE::TEXTURE_RESULT);
+		CBg* pBg = CApplication::GetBg()->Create(D3DXVECTOR3(1280.0f / 2, 720.0f / 2, 0.0f), 
+												1280.0f, 
+												720.0f, 
+												CTexture::TEXTURE::TEXTURE_RESULT);
 	}
 	else
 	{
 		//ゲーム内のオブジェクト生成
-		m_pBg = CBg::Create(D3DXVECTOR3(1280.0f / 2, 720.0f / 2, 0.0f),
-							1280.0f,
-							720.0f,
-							CTexture::TEXTURE::TEXTURE_RESULT_DEATH);
+		CBg* pBg = CApplication::GetBg()->Create(D3DXVECTOR3(1280.0f / 2, 720.0f / 2, 0.0f),
+												1280.0f,
+												720.0f,
+												CTexture::TEXTURE::TEXTURE_RESULT_DEATH);
 	}
-}
-
-//---------------------------------------
-//背景情報取得
-//---------------------------------------
-CBg * CResult::GetBg()
-{
-	return m_pBg;
 }
 
 //---------------------------------------

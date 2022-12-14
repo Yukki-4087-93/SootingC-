@@ -127,13 +127,13 @@ void Cprotect_City::Damage(int nDamage)
 	if (m_nLife < 15 && m_nLife >= 5)
 	{
 		SetColor(D3DXCOLOR(1.0f, 1.0f, 0.0f, 1.0f));
-		CObject2D::SetTexture(CTexture::TEXTURE_PROTECT_DEATHALERT);			//テクスチャの配置
+		CObject2D::SetTexture(CTexture::TEXTURE_PROTECT_DEEPALERT);			//テクスチャの配置
 	}
 
 	if (m_nLife < 5 && m_nLife >= 0)
 	{
 		SetColor(D3DXCOLOR(1.0f, 0.0f, 0.0f, 1.0f));
-		CObject2D::SetTexture(CTexture::TEXTURE_PROTECT_DEEPALERT);			//テクスチャの配置
+		CObject2D::SetTexture(CTexture::TEXTURE_PROTECT_DEATHALERT);			//テクスチャの配置
 	}
 }
 

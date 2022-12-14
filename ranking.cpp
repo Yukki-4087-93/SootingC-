@@ -26,7 +26,7 @@
 //--------------------------------------
 //グローバル変数
 //--------------------------------------
-CBg *CRanking::m_pBg;
+//CBg *CRanking::m_pBg;
 CScore *CRanking::m_pScore;
 CTexture *CRanking::m_pTexture;
 CUi *CRanking::m_pUi;
@@ -59,7 +59,10 @@ HRESULT CRanking::Init()
 	BubbleSort(m_nBox);
 	Save();
 
-	m_pBg = CBg::Create(D3DXVECTOR3(1280.0f / 2, 720.0f / 2, 0.0f), 1280.0f, 720.0f, CTexture::TEXTURE::TEXTURE_RANKING_BG);
+	CBg* pBg = CApplication::GetBg()->Create(D3DXVECTOR3(1280.0f / 2, 720.0f / 2, 0.0f),
+											1280.0f,
+											720.0f,
+											CTexture::TEXTURE::TEXTURE_RANKING_BG);
 
 	m_pUi = CUi::Create(D3DXVECTOR3(360.0f, 383.0f, 0.0f), 80.0f, 600.0f, CTexture::TEXTURE::TEXTURE_RANKING);
 
@@ -195,14 +198,6 @@ void CRanking::Load()
 	//{//ファイルが開けなかったとき
 	//	printf("~~~ファイルが開けなかった！~~~");
 	//}
-}
-
-//--------------------------------------
-//背景の情報取得
-//--------------------------------------
-CBg * CRanking::GetBg()
-{
-	return m_pBg;
 }
 
 //--------------------------------------

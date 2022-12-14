@@ -26,7 +26,6 @@
 //--------------------------------------
 //静的メンバ変数の宣言
 //--------------------------------------
-CBg *CGame::m_pBg;
 CPlayer *CGame::m_pPlayer;
 CEnemyManager *CGame::m_pEnemyManager;
 Cprotect_City *CGame::m_pProtect_City;
@@ -62,7 +61,10 @@ HRESULT CGame::Init()
 /*ゲーム内のオブジェクト生成*/
 
 	//背景の生成
-	m_pBg = CBg::Create(D3DXVECTOR3(1280.0f / 2, 720.0f / 2, 0.0f), 1280.0f, 720.0f,CTexture::TEXTURE::TEXTERE_BG);
+	CBg* pBg = CApplication::GetBg()->Create(D3DXVECTOR3(1280.0f / 2, 720.0f / 2, 0.0f),
+											1280.0f,
+											720.0f,
+											CTexture::TEXTURE::TEXTERE_BG);
 
 	//壁の生成
 	m_pProtect_City = Cprotect_City::Create(D3DXVECTOR3(0.0f, 720.0f / 2, 0.0f), 100.0f, 720.0f);
@@ -89,12 +91,6 @@ void CGame::Uninit()
 {
 	//サウンドの停止
 	CApplication::GetSound()->Stop();
-
-	if (m_pBg != nullptr)
-	{//背景のポインタに値に何かしらの値が入っていたら
-		m_pBg->Uninit();				//背景の終了
-		m_pBg = nullptr;				//ヌルを代入
-	}
 	
 	if (m_pProtect_City != nullptr)
 	{//壁のポインタに値に何かしらの値が入っていたら
@@ -130,16 +126,6 @@ void CGame::Uninit()
 //--------------------------------------
 void CGame::Update()
 {
-	if (m_pBg != nullptr)
-	{//背景のポインターに値が入っていたとき
-		m_pBg->Update();							//背景の更新
-	}
-
-	if (m_pScore != nullptr)
-	{//スコアのポインタに値が入っていたとき
-		m_pScore->Update();							//スコアの更新
-	}
-
 	if (m_pEnemyManager != nullptr)
 	{//エネミーマネージャーのポインタに値が入っていたとき
 		m_pEnemyManager->PopEnenmy();				//エネミーを呼び出す
@@ -152,14 +138,6 @@ void CGame::Update()
 void CGame::Draw()
 {
 	
-}
-
-//---------------------------------------
-//背景情報取得
-//---------------------------------------
-CBg * CGame::GetBg()
-{
-	return m_pBg;
 }
 
 //---------------------------------------

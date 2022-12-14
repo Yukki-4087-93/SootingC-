@@ -119,11 +119,11 @@ void CScore::Update()
 	{
 		m_nTimeStartCounter++;
 
-		if (m_nTimeStartCounter >= 1200)
+		if (m_nTimeStartCounter >= 1800)
 		{
 			m_nTimeCounter++;
 
-			if (m_nTimeCounter % 120 == 0)
+			if (m_nTimeCounter % 60 == 0)
 			{
 				MinusTime(1);
 			}

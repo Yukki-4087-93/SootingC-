@@ -18,6 +18,8 @@
 #include "input.h"
 #include "sound.h"
 #include "object.h"
+#include "bg.h"
+#include <assert.h>
 
 //--------------------------------------
 //グローバル変数
@@ -31,6 +33,7 @@ CRanking *CApplication::m_pRanking;
 CInput *CApplication::m_pInputKyeboard;
 CApplication::MODE CApplication::m_mode;
 CSound *CApplication::m_pSound;
+CBg *CApplication::m_pBg;
 
 //--------------------------------------
 //コンストラクタ
@@ -106,30 +109,31 @@ void CApplication::Update()
 	switch (m_mode)
 	{
 	case CApplication::MODE_TITLE:
-		
+		//タイトルの更新
 		m_pTitle->Update();
 
 		break;
 
 	case CApplication::MODE_GAME:
-		
+		//ゲームの更新
 		m_pGame->Update();
 
 		break;
 
 	case CApplication::MODE_RESULT:
-		
+		//リザルトの更新
 		m_pResult->Update();
-		
+
 		break;
 
 	case CApplication::MODE_RANKING:
-		
+		//ランキングの更新
 		m_pRanking->Update();
-		
+
 		break;
 
-	default:
+	default:	//それ以外
+		assert(false);
 		break;
 	}
 }
@@ -167,9 +171,9 @@ void CApplication::ReleseDustCheck()
 
 	if (m_pGame != nullptr)
 	{//ゲームのポインタに何かしらの値が入っていたら
-		m_pGame->Uninit();					//ゲーム全体の終了処理
-		delete m_pGame;						//ゲームのポインタを解放
-		m_pGame = nullptr;					//ヌルを代入
+		m_pGame->Uninit();						//ゲーム全体の終了処理
+		delete m_pGame;							//ゲームのポインタを解放
+		m_pGame = nullptr;						//ヌルを代入
 	}
 
 	if (m_pInputKyeboard != nullptr)
@@ -180,67 +184,16 @@ void CApplication::ReleseDustCheck()
 	}
 
 	if (m_pSound != nullptr)
-	{
+	{//サウンドのポインタに何かしらの値が入っていたら
 		m_pSound->Uninit();						//終了処理
 		delete m_pSound;						//サウンドのポインタを開放
-		m_pSound = nullptr;						//
+		m_pSound = nullptr;						//ヌルを代入
 	}
-}
 
-//---------------------------------------
-//レンダラー情報取得
-//---------------------------------------
-CRenderer * CApplication::GetRenderer()
-{
-	return m_aRenderer;
-}
-
-//---------------------------------------
-//キーボード情報取得
-//---------------------------------------
-CInput * CApplication::GetKyeboard()
-{
-	return m_pInputKyeboard;
-}
-
-//---------------------------------------
-// テクスチャの情報取得
-//---------------------------------------
-CTexture* CApplication::GetTexture()
-{
-	return m_pTexture;
-}
-
-//---------------------------------------
-//タイトル情報取得
-//---------------------------------------
-CTitle * CApplication::GetTitle()
-{
-	return m_pTitle;
-}
-
-//---------------------------------------
-//ゲーム情報取得
-//---------------------------------------
-CGame * CApplication::GetGame()
-{
-	return m_pGame;
-}
-
-//---------------------------------------
-//リザルト情報取得
-//---------------------------------------
-CResult * CApplication::GetResult()
-{
-	return m_pResult;
-}
-
-//---------------------------------------
-//ランキング情報取得
-//---------------------------------------
-CRanking * CApplication::GetRanking()
-{
-	return m_pRanking;
+	if (m_pBg != nullptr)
+	{//背景のポインタに何かしらの値が入っていたら
+		m_pBg->Uninit();						//終了処理
+	}
 }
 
 //---------------------------------------
@@ -251,36 +204,31 @@ void CApplication::SetMode(MODE mode)
 	switch (m_mode)
 	{
 	case CApplication::MODE_TITLE:
-
+		//タイトルの終了
 		m_pTitle->Uninit();
 
 		break;
 
 	case CApplication::MODE_GAME:
-
+		//ゲームの終了
 		m_pGame->Uninit();
 
 		break;
 
 	case CApplication::MODE_RESULT:
-
+		//リザルトの終了
 		m_pResult->Uninit();
 
 		break;
 
 	case CApplication::MODE_RANKING:
-
+		//ランキングの終了
 		m_pRanking->Uninit();
 
 		break;
 
-	case CApplication::MODE_MAX:
-
-		/*変更なし*/
-
-		break;
-
-	default:
+	default:	//それ以外
+		assert(false);
 		break;
 	}
 
@@ -293,39 +241,32 @@ void CApplication::SetMode(MODE mode)
 	switch (m_mode)
 	{
 	case CApplication::MODE_TITLE:
-
+		//タイトルの初期化
 		m_pTitle->Init();
 
 		break;
 
 	case CApplication::MODE_GAME:
-
+		//ゲームの初期化
 		m_pGame->Init();
 
 		break;
 
 	case CApplication::MODE_RESULT:
-		
+		//リザルトの初期化
 		m_pResult->Init();
 		
 		break;
 
 	case CApplication::MODE_RANKING:
-
+		//ランキングの初期化
 		m_pRanking->Init();
 		
 		break;
 	
-	default:
+	default:	//それ以外
+		assert(false);
 		break;
 	}
 
-}
-
-//---------------------------------------
-//モード情報取得
-//---------------------------------------
-CApplication::MODE CApplication::GetMode()
-{
-	return m_mode;
 }
